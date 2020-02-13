@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.active {
+    color: #f00
+}
+
+.title {
+    padding: 10px;
+    padding-left: 200px;
+    text-align: center;
+    border-bottom: 1px solid #888;
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    overflow-y: auto;  /*overflow-y 属性规定是否对内容的上/下边缘进行裁剪 - 如果溢出元素内容区域的话  auto:如果溢出框，则应该提供滚动机制*/
+    background: #304156;
+    border: 1px solid #888;
+}
+
+.route_box {
+    padding: 10px;
+    text-align: center;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.content {
+    padding-left: 210px;
+}
