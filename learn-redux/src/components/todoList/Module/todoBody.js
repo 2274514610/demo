@@ -1,6 +1,7 @@
 import React from 'react'
 import TodoItem from './todoItem'
 import store from '../../../store'
+import {connect} from 'react-redux'
 
 class TodoBody extends React.Component {
     constructor(props) {
@@ -13,16 +14,16 @@ class TodoBody extends React.Component {
             <div className= 'todo_body'>
                 <ul>
                     {
-                        storeState.arr.map((item,index)=> {
-                            if(storeState.status === 1) {  //全部
+                        this.props.arr.map((item,index)=> {
+                            if(this.props.status === 1) {  //全部
                                 return <TodoItem item={item} index={index} key={index}/>
-                            }else if(storeState.status === 2) {  //未完成
+                            }else if(this.props.status === 2) {  //未完成
                                 if(!item.isDone) {
                                     return <TodoItem item={item} index={index} key={index}/>
                                 }else {
                                     return null
                                 }
-                            }else if(storeState.status === 3) {  //已完成
+                            }else if(this.props.status === 3) {  //已完成
                                 if(item.isDone) {
                                     return <TodoItem item={item} index={index} key={index}/>
                                 }else {
@@ -36,5 +37,12 @@ class TodoBody extends React.Component {
         )
     }
 }
+const TodoBody_Connect = connect(
+    state => {
+        return {
+            ...state
+        }
+    }
+)(TodoBody);
 
-export default TodoBody
+export default TodoBody_Connect
