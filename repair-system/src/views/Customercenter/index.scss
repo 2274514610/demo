@@ -1,0 +1,77 @@
+@import '../../globalCss/px2-rem';
+
+.customer_center_box {
+  min-height: calc(100vh - 94px);
+  background: #fff;
+
+  .header_box {
+    background: #108ee9;
+    height: px-to-rem(300);
+    position: relative;
+
+    .username {
+      color: #fff;
+      font-size: px-to-rem(36);
+      font-weight: 700;
+      padding-top: px-to-rem(70);
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .avatar {
+      width: px-to-rem(200);
+      height: px-to-rem(200);
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 24%);
+      border: 4px solid #fff;
+      border-radius: 50%;
+      z-index: 998;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .content_box {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+
+    ::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      top: -18%;
+      width: 1px;
+      background: #eee;
+    }
+
+    .done_repair {
+      width: px-to-rem(200);
+    }
+
+    .await_repair {
+      width: px-to-rem(200);
+      margin-left: px-to-rem(30);
+    }
+  }
+
+  .floor_box {
+    box-sizing: border-box;
+    padding: px-to-rem(20);
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: px-to-rem(200);
+  }
+}

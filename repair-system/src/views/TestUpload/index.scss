@@ -1,0 +1,14 @@
+@import '../../globalCss/px2-rem';
+
+.test_upload {
+  .img_box {
+    display: flex;
+
+    .upload_img {
+      width:px-to-rem(200);
+      height: px-to-rem(200);
+      border-radius: 6px;
+      margin-left: px-to-rem(20);
+    }
+  }
+}

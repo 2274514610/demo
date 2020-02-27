@@ -1,0 +1,14 @@
+@import '../../globalCss/px2-rem';
+
+.from_box {
+  width: px-to-rem(750);
+  .input_box {
+    margin-top: px-to-rem(20);
+    padding: 0 px-to-rem(18);
+  }
+
+  .btn_box {
+    margin-top: px-to-rem(40);
+    padding: 0 px-to-rem(18);
+  }
+}

@@ -1,0 +1,16 @@
+@import '../globalCss/px2-rem';
+
+.Cell-box {
+  padding: px-to-rem(16) px-to-rem(18);
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  .first-box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .second_box {
+    margin-top: 6px;
+    font-size: 14px;
+  }
+}
