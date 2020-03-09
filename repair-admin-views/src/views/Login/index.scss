@@ -1,0 +1,25 @@
+.login_wrapper {
+  background: url("./image/background.png") no-repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  .login_box {
+    width: 26vw;
+    height: 36vh;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    //border: 1px solid #888888;
+    padding: 20px;
+
+    .btn_wrapper {
+      width: 100%;
+      box-sizing: border-box;
+      .btn  {
+        width: 100%;
+      }
+    }
+  }
+}
