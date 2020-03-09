@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    const arr = [
+        {id: 1, parentId: 0, name: '一级菜单A', rank: 1},
+        {id: 2, parentId: 0, name: '一级菜单B', rank: 1},
+        {id: 3, parentId: 0, name: '一级菜单C', rank: 1},
+        {id: 4, parentId: 1, name: '二级菜单A-A', rank: 2},
+        {id: 5, parentId: 1, name: '二级菜单A-B', rank: 2},
+        {id: 6, parentId: 2, name: '二级菜单B-A', rank: 2},
+        {id: 7, parentId: 4, name: '三级菜单A-A-A', rank: 3},
+        {id: 8, parentId: 7, name: '四级菜单A-A-A-A', rank: 4},
+        {id: 9, parentId: 8, name: '五级菜单A-A-A-A-A', rank: 5}
+    ];
+
+    function deep (parent) {
+        let children = parent instanceof Array ? [] : {};
+        for(let key in parent) {
+            if(typeof parent[key] == 'object') {
+                children[key] = deep(parent[key])
+            }else {
+                children[key] = parent[key]
+            }
+        }
+        return children;
+    };
+
+    const newArr = deep(arr);
+    newArr[2].name = '我是一只唐老鸭';
+    console.log('我是深拷贝得到的数据',newArr);
+    console.log('我是原数据',arr);
+</script>
+</html>

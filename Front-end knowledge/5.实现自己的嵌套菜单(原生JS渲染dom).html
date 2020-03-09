@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<!--        <ul>-->
+<!--            <li>-->
+<!--                <div>-->
+<!--                    一级菜单A-->
+<!--                </div>-->
+<!--                <ul>-->
+<!--                    <li>-->
+<!--                        二级菜单-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                一级菜单B-->
+<!--            </li>-->
+<!--        </ul>-->
+</div>
+</body>
+<script>
+    const arr = [
+        {id: 1, parentId: 0, name: '一级菜单A', rank: 1},
+        {id: 2, parentId: 0, name: '一级菜单B', rank: 1},
+        {id: 3, parentId: 0, name: '一级菜单C', rank: 1},
+        {id: 4, parentId: 1, name: '二级菜单A-A', rank: 2},
+        {id: 5, parentId: 1, name: '二级菜单A-B', rank: 2},
+        {id: 6, parentId: 2, name: '二级菜单B-A', rank: 2},
+        {id: 7, parentId: 4, name: '三级菜单A-A-A', rank: 3},
+        {id: 8, parentId: 7, name: '四级菜单A-A-A-A', rank: 4},
+        {id: 9, parentId: 8, name: '五级菜单A-A-A-A-A', rank: 5}
+    ];
+    function lineTree (arr) {
+        let copyArr = JSON.parse(JSON.stringify(arr));
+        let newArr = copyArr.filter(father =>{
+            let children = copyArr.filter(children => children.parentId == father.id);
+            if(children.length > 0) {
+                father.children = children;
+            }
+            return father.parentId == 0;
+        });
+        return newArr;
+    }
+
+    let Tree = lineTree(arr);
+    // console.log(Tree)
+    let container = document.querySelector('.container');
+    let origUl = document.createElement('ul');
+    container.appendChild(origUl);
+    function SetDom(data,parentDom) {
+        data.map(item => {
+            if(item.children) {
+                let div = document.createElement('div');
+                let ul = document.createElement('ul');
+                let li = document.createElement('li');
+                div.innerText = item.name;
+                div.addEventListener("click", function() {
+                    console.log(1);
+                    if(ul.style.display == '') {
+                        ul.style.display = 'none'
+                    }else if(ul.style.display == 'block') {
+                        ul.style.display = 'none'
+                    }else {
+                        ul.style.display = 'block'
+                    }
+                })
+                li.appendChild(div);
+                li.appendChild(ul);
+                parentDom.appendChild(li);
+                SetDom(item.children,ul)
+            }else {
+                let li = document.createElement('li');
+                li.innerText = item.name;
+                parentDom.appendChild(li);
+            }
+        })
+
+    }
+    SetDom(Tree,origUl);
+</script>
+</html>
